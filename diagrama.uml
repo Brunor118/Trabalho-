@@ -1,0 +1,19 @@
+@startuml
+
+class Livro { - titulo : String - autor : String - isbn : String -
+disponivel : Boolean + emprestar() : void + devolver() : void }
+
+class Usuario { - nome : String - matricula : String +
+realizarEmprestimo(livro : Livro) : void + devolverLivro(livro : Livro)
+: void }
+
+class Emprestimo { - dataEmprestimo : Date - dataDevolucao : Date -
+livro : Livro - usuario : Usuario }
+
+class Biblioteca { - livros : List - usuarios : List + adicionarLivro(l
+: Livro) : void + cadastrarUsuario(u : Usuario) : void }
+
+Usuario “1” – “” Emprestimo Livro ”1” – ”” Emprestimo Biblioteca “1” –
+“” Livro Biblioteca ”1” – ”” Usuario
+
+@enduml
